@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_10_15_075633) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "price"
+    t.string "image_url"
     t.integer "category_id"
     t.integer "transaktion_id"
     t.datetime "created_at", null: false
