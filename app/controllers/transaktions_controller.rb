@@ -5,12 +5,12 @@ class TransaktionsController < ApplicationController
   end
 
   def show
-    @transakton = Transaktion.find(date: params[:date])
+    @transaktion = Transaktion.find(date: params[:date])
   end
 
   def new
     @transaktion = Transaktion.new
-    render json: @transakton
+    render json: @transaktion
   end
 
   def create
@@ -25,6 +25,6 @@ class TransaktionsController < ApplicationController
   private
 
   def transaktion_params
-    params.require(:transakton).permit(:date, :time, :total)
+    params.require(:transaktion).permit(:total, :store_id)
   end
 end

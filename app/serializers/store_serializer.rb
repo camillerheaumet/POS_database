@@ -15,11 +15,9 @@ class StoreSerializer < ActiveModel::Serializer
     self.object.transaktions.map do |transaktion|
       {
        id: transaktion.id,
-       date: transaktion.date,
-       time: transaktion.time,
        total: transaktion.total,
        store: transaktion.store_id,
-       items: transaktion.items
+       sold_items: transaktion.sold_items
       }
     end
   end
