@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2018_11_12_154748) do
   end
 
   create_table "transaktions", force: :cascade do |t|
+    t.date "date"
+    t.time "time"
     t.integer "total"
     t.integer "store_id"
     t.datetime "created_at", null: false

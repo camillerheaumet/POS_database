@@ -13,6 +13,7 @@ resources :sold_items, only: [:index, :new, :create]
 
 
   get 'stores/:name', to: 'stores#show'
+  get 'stores/:name/sold_items', to: 'stores#sold_items'
   delete 'stores/:name', to: 'store#destroy', as: 'destroy_store'
 
   get 'categories/:name', to: 'categories#show'

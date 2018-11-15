@@ -28,6 +28,12 @@ class StoresController < ApplicationController
     render json: {message:'Store deleted successfully'}
   end
 
+  def sold_items
+    @store = Store.find_by(name: params[:name])
+    @store_sold_items = SoldItem.all.select{|sold_item| sold_item.transaktion.store_id === @store.id}
+    render json: @store_sold_items, serializer: SoldItemsSerializer
+  end
+
   private
 
   def store_params
