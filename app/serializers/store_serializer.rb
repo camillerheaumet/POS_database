@@ -22,4 +22,5 @@ class StoreSerializer < ActiveModel::Serializer
     end
   end
 
+
 end
