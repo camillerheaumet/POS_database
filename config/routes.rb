@@ -6,6 +6,7 @@ resources :categories, only: [:index, :new, :create]
 resources :sold_items, only: [:index, :new, :create]
 
   get 'transaktions/:date', to: 'transaktions#date'
+  get 'transaktions/:id/sold_items', to: 'transaktions#transaktion_sold_items'
 
 
   get 'items/:name', to: 'items#show'

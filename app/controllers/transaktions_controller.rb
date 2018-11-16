@@ -22,6 +22,12 @@ class TransaktionsController < ApplicationController
     end
   end
 
+  def transaktion_sold_items
+    @transaktion = Transaktion.find(params[:id])
+    @transaktion_sold_items = SoldItem.all.select{|sold_item| sold_item.transaktion_id === @transaktion.id}
+    render json: @transaktion_sold_items, each_serializer: TransaktionSoldItemSerializer
+  end
+
   private
 
   def transaktion_params
