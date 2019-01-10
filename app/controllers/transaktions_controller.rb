@@ -5,12 +5,12 @@ class TransaktionsController < ApplicationController
   end
 
   def show
-    @transakton = Transaktion.find(date: params[:date])
+    @transaktion = Transaktion.find(date: params[:date])
   end
 
   def new
     @transaktion = Transaktion.new
-    render json: @transakton
+    render json: @transaktion
   end
 
   def create
@@ -22,9 +22,15 @@ class TransaktionsController < ApplicationController
     end
   end
 
+  def transaktion_sold_items
+    @transaktion = Transaktion.find(params[:id])
+    @transaktion_sold_items = SoldItem.all.select{|sold_item| sold_item.transaktion_id === @transaktion.id}
+    render json: @transaktion_sold_items, each_serializer: TransaktionSoldItemSerializer
+  end
+
   private
 
   def transaktion_params
-    params.require(:transakton).permit(:date, :time, :total)
+    params.require(:transaktion).permit(:total, :store_id)
   end
 end

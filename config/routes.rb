@@ -3,14 +3,18 @@ resources :stores, only: [:index, :new, :create]
 resources :transaktions, only: [:index, :new, :create]
 resources :items, only: [:index, :new, :create]
 resources :categories, only: [:index, :new, :create]
+resources :sold_items, only: [:index, :new, :create]
 
   get 'transaktions/:date', to: 'transaktions#date'
+  get 'transaktions/:id/sold_items', to: 'transaktions#transaktion_sold_items'
 
 
   get 'items/:name', to: 'items#show'
   delete 'items/:name', to: 'items#destroy', as: 'destroy_user'
 
+
   get 'stores/:name', to: 'stores#show'
+  get 'stores/:name/sold_items', to: 'stores#sold_items'
   delete 'stores/:name', to: 'store#destroy', as: 'destroy_store'
 
   get 'categories/:name', to: 'categories#show'

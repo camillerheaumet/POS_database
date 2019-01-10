@@ -1,4 +1,4 @@
 class Item < ApplicationRecord
   belongs_to :category
-  belongs_to :transaktion
+  has_many :sold_items
 end
